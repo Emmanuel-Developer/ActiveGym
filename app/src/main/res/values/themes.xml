@@ -5,5 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="Theme.MyApp" parent="Theme.Material3.DayNight">
+        <!-- Colores personalizados -->
+    </style>
+
+
     <style name="Theme.ActiveGym" parent="Base.Theme.ActiveGym" />
 </resources>
