@@ -46,4 +46,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Coroutines para lifecycleScope y delay
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Lifecycle KTX para lifecycleScope en Fragment
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // Navigation para findNavController
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+
 }
