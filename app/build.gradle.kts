@@ -48,27 +48,18 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-<<<<<<< HEAD
+
 //Material desing
     implementation("androidx.compose.material3:material3:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.material:material:1.12.0")
 
-=======
-    // Coroutines para lifecycleScope y delay
-    implementation(libs.kotlinx.coroutines.android)
 
-    // Lifecycle KTX para lifecycleScope en Fragment
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-
-    // Navigation para findNavController
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
 
     //FIREBASE
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
->>>>>>> b8e9a70956993405b896a7fa5a82b96d958131e9
+
 
 
 }
