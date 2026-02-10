@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">ActiveGym</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="create_account">Crea tu Cuenta</string>
+    <string name="name_GYM">Nombre del GYM</string>
+    <string name="password">Ingresa tu Contraseña</string>
+    <string name="email">Ingresa tu Email</string>
+    <string name="confirm_your_password">Confirma tu contraseña</string>
+    <string name="register">Registrar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
