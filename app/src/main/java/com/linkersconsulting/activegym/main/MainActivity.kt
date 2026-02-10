@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
 
-          
+
         }
+        // ¡¡SOLO ESTO!! Navigation maneja el splash automáticamente
     }
 }

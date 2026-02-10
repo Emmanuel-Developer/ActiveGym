@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "805527598116",
+    "project_id": "activegym-24cdd",
+    "storage_bucket": "activegym-24cdd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805527598116:android:119bb7ba1a75af581ed4b1",
+        "android_client_info": {
+          "package_name": "com.linkersconsulting.activegym"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2cRe0RRkGetkAR-xTQ68MW42wBrf1JSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

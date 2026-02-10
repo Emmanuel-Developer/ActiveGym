@@ -1,0 +1,25 @@
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/splashFragment">
+
+    <!-- SPLASH -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.linkersconsulting.activegym.features.init.presentation.ui.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+
+        <!-- ACCIÓN: Splash -> Login -->
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- LOGIN -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.linkersconsulting.activegym.features.auth.presentation.ui.LoginFragment"
+        tools:layout="@layout/fragment_login" />
+
+</navigation>
