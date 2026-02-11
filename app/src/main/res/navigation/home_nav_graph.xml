@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeMainFragment">
+
+    <fragment
+        android:id="@+id/homeMainFragment"
+        android:name="com.linkersconsulting.activegym.features.home.HomeMainFragment"
+        android:label="Homeee" />
+
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.linkersconsulting.activegym.features.home.CreateFragment"
+        android:label="Crear" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.linkersconsulting.activegym.features.home.ProfileFragment"
+        android:label="Perfil" />
+
+
+
+</navigation>

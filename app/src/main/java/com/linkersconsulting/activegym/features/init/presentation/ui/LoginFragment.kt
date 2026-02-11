@@ -7,15 +7,22 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.linkersconsulting.activegym.R
 import com.linkersconsulting.activegym.databinding.FragmentLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.linkersconsulting.activegym.utils.toast
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentLoginBinding.bind(view)
+
+        // 🔥 Inicializar Firebase
+        auth = FirebaseAuth.getInstance()
 
         binding.btnLogin.setOnClickListener {
 
@@ -30,11 +37,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.etPassword.error = "La contraseña es obligatoria"
                 }
                 else -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "Email: $email\nPassword: $password",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    loginUser(email, password)
                 }
             }
         }
@@ -44,6 +47,30 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 R.id.action_loginFragment_to_registerFragment
             )
         }
+    }
+
+    private fun loginUser(email: String, password: String) {
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+
+                if (task.isSuccessful) {
+
+                  toast("Bienvenido")
+
+                    findNavController().navigate(
+                        R.id.action_loginFragment_to_homeFragment
+                    )
+
+                } else {
+
+                    Toast.makeText(
+                        requireContext(),
+                        "Usuario no existe o contraseña incorrecta",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
     }
 
     override fun onDestroyView() {
