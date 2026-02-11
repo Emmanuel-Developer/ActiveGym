@@ -6,13 +6,7 @@ plugins {
 
 android {
     namespace = "com.linkersconsulting.activegym"
-    compileSdk {
-        version = release(36)
-    }
-
-    buildFeatures {
-        viewBinding = true
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.linkersconsulting.activegym"
@@ -36,6 +30,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -65,8 +63,13 @@ dependencies {
     //FIREBASE
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-firestore-ktx")
 
 
 
 
+//Material desing
+    implementation("androidx.compose.material3:material3:1.3.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.material:material:1.12.0")
 }
