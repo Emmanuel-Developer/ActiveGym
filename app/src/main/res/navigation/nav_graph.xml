@@ -10,7 +10,6 @@
         android:id="@+id/splashFragment"
         android:name="com.linkersconsulting.activegym.features.init.presentation.ui.SplashFragment"
         tools:layout="@layout/fragment_splash">
-
         <action
             android:id="@+id/action_splash_to_login"
             app:destination="@id/loginFragment" />
@@ -21,7 +20,6 @@
         android:id="@+id/loginFragment"
         android:name="com.linkersconsulting.activegym.features.init.presentation.ui.LoginFragment"
         tools:layout="@layout/fragment_login">
-
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -31,21 +29,29 @@
             app:destination="@id/homeFragment" />
     </fragment>
 
-    <!-- REGISTER -->
+    <!-- REGISTER - ✅ CORREGIDO EL PACKAGE -->
     <fragment
         android:id="@+id/registerFragment"
+<<<<<<< HEAD
         android:name="com.linkersconsulting.activegym.features.init.presentation.ui.RegisterFragment"
         tools:layout="@layout/fragment_register">
 
+=======
+        android:name="com.linkersconsulting.activegym.features.auth.presentation.ui.RegisterFragment"
+        tools:layout="@layout/fragment_register">
+>>>>>>> 9440be26336c99c10e724edda7ae214a5fc4e1db
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+<<<<<<< HEAD
 
     <!-- HOME -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.linkersconsulting.activegym.features.home.presentation.ui.HomeFragment"
         tools:layout="@layout/fragment_home" />
+=======
+>>>>>>> 9440be26336c99c10e724edda7ae214a5fc4e1db
 
 </navigation>

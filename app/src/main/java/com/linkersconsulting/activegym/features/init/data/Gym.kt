@@ -4,5 +4,5 @@ data class Gym(
     val gymName: String = "",
     val email: String = "",
     val uid: String = "",
-    val createdAt: com.google.firebase.Timestamp? = null
+    val createdAt: Long = 0L
 )
