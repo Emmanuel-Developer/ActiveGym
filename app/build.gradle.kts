@@ -10,6 +10,10 @@ android {
         version = release(36)
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.linkersconsulting.activegym"
         minSdk = 28
@@ -61,6 +65,8 @@ dependencies {
     //FIREBASE
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
+
+
 
 
 }
