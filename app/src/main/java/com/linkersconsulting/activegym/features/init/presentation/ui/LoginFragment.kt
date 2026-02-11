@@ -10,22 +10,34 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.button.MaterialButton
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.linkersconsulting.activegym.databinding.FragmentLoginBinding
+import com.linkersconsulting.activegym.databinding.FragmentRegisterBinding
+import com.linkersconsulting.activegym.utils.toast
 
 
 class LoginFragment : Fragment() {
+    private val binding by lazy {
+        FragmentLoginBinding.inflate(layoutInflater)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
 
-        val etEmail = view.findViewById<TextInputEditText>(R.id.etEmail)
-        val etPassword = view.findViewById<TextInputEditText>(R.id.etPassword)
-        val tilEmail = view.findViewById<TextInputLayout>(R.id.tilEmail)
-        val tilPassword = view.findViewById<TextInputLayout>(R.id.tilPassword)
-        val btnLogin = view.findViewById<MaterialButton>(R.id.btnLogin)
+
+    private fun initView() = binding.apply {
 
         btnLogin.setOnClickListener {
-
-
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
@@ -52,12 +64,6 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 }

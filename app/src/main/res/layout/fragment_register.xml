@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#FF1A1A1A"
     tools:context=".features.auth.presentation.ui.RegisterFragment">
 
-    <!-- Botón BACK - Esquina superior izquierda con VECTOR -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnArrowBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
         android:layout_margin="16dp"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_back_arrow"
         app:backgroundTint="@android:color/black"
         app:tint="@color/red"
         app:fabSize="mini"
         tools:ignore="ContentDescription" />
 
-    <!-- Imagen de fondo -->
+    <!-- Imagen de fondo - NO capturan clicks -->
     <ImageView
         android:id="@+id/bgImageLogo"
         android:layout_width="match_parent"
@@ -28,120 +32,145 @@
         android:layout_marginTop="-120dp"
         android:src="@drawable/ic_gym_logo"
         android:scaleType="centerCrop"
-        android:contentDescription="@null" />
+        android:contentDescription="@null"
+        android:clickable="false"
+        android:focusable="false" />
 
-    <!-- Formulario - A EXACTAMENTE 30dp del botón Register -->
-    <LinearLayout
+    <!-- Overlay oscuro - NO captura clicks -->
+    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:background="#AA000000"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <!-- Formulario -->
+    <LinearLayout
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="86dp"
+        android:background="@drawable/card_background"
+        android:elevation="20dp"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:background="#CC000000">
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view">
 
-        <!-- Título -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:letterSpacing="0.02"
             android:text="@string/create_account"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="24dp"
-            android:gravity="center" />
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-        <!-- Nombre completo -->
+        <!-- Nombre del Gym -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:boxStrokeColor="@android:color/white"
-            app:hintTextColor="@android:color/white"
+            android:layout_marginBottom="16dp"
             android:hint="@string/name_GYM"
-            android:textColorHint="@android:color/white">
+            app:boxBackgroundColor="#00FFFFFF"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="#DEFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etGymName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="#DEFFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:boxStrokeColor="@android:color/white"
-            app:hintTextColor="@android:color/white"
+            android:layout_marginBottom="16dp"
             android:hint="@string/email"
-            android:textColorHint="@android:color/white">
+            app:boxBackgroundColor="#00FFFFFF"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="#DEFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="#DEFFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Contraseña -->
+        <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:boxStrokeColor="@android:color/white"
-            app:hintTextColor="@android:color/white"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@android:color/white"
+            android:layout_marginBottom="16dp"
             android:hint="@string/password"
-            android:textColorHint="@android:color/white">
+            app:boxBackgroundColor="#00FFFFFF"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="#DEFFFFFF"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#FFFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="#DEFFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Confirmar contraseña -->
+        <!-- Confirmar Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:boxStrokeColor="@android:color/white"
-            app:hintTextColor="@android:color/white"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@android:color/white"
+            android:layout_marginBottom="32dp"
             android:hint="@string/confirm_your_password"
-            android:textColorHint="@android:color/white">
+            app:boxBackgroundColor="#00FFFFFF"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="#DEFFFFFF"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="#DEFFFFFF" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Register - CLICKABLE -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FFFF4444"
+            app:cornerRadius="16dp"
+            app:elevation="8dp"
+            app:strokeColor="#66FF4444"
+            app:strokeWidth="1dp" />
 
     </LinearLayout>
 
-    <!-- Botón Registrarse - FIJO en la parte inferior -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/register"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        app:backgroundTint="@color/red"
-        app:cornerRadius="12dp" />
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

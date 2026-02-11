@@ -43,7 +43,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- BUTTON -->
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
