@@ -11,29 +11,32 @@ import com.linkersconsulting.activegym.databinding.FragmentRegisterBinding
 import com.linkersconsulting.activegym.utils.toast
 
 class RegisterFragment : Fragment() {
-    private val binding by lazy {
-        FragmentRegisterBinding.inflate(layoutInflater)
-    }
+    private var _binding: FragmentRegisterBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return binding.root  // Se inicializa aquí automáticamente
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initView()
     }
 
-    private fun initView() = binding.apply {
-
-        btnRegister.setOnClickListener {
+    private fun initView() {
+        binding.btnRegister.setOnClickListener {
             toast("Cliente guardado exitosamente!")
         }
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
 
