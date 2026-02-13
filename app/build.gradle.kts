@@ -67,7 +67,8 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore-ktx")
 
 
-
+// Viewpager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 
 //Material desing
     implementation("androidx.compose.material3:material3:1.3.0")
