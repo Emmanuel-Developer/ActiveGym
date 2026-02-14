@@ -2,7 +2,9 @@
 
     <!-- Base application theme -->
     <style name="Base.Theme.ActiveGym" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Colores base -->
+
+
+    <!-- Colores base -->
     </style>
 
     <!-- Theme real usado por la app -->
