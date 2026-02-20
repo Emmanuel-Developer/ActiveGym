@@ -19,6 +19,12 @@
         android:name="com.linkersconsulting.activegym.features.home.ProfileFragment"
         android:label="Perfil" />
 
+    <fragment
+        android:id="@+id/membersFragment"
+        android:name="com.linkersconsulting.activegym.features.home.MembersFragment"
+        android:label="Members" />
+
+
 
 
 </navigation>
