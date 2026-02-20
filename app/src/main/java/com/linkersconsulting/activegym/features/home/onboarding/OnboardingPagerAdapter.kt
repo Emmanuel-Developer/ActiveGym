@@ -20,6 +20,7 @@ class OnboardingPagerAdapter(
 
     private var currentPosition = 0
     private val dotViews = mutableListOf<View>()
+    private var dotsCreated = false  // 🔥 FIX: Evita recrear dots
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemOnboardingBinding.inflate(
@@ -31,7 +32,11 @@ class OnboardingPagerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
-        updateDots(position)
+        // 🔥 FIX: NO llamar updateDots aquí (evita recreación infinita)
+        if (!dotsCreated) {
+            createDots(position)
+            dotsCreated = true
+        }
         updateButton(position == items.size - 1)
     }
 
@@ -41,7 +46,6 @@ class OnboardingPagerAdapter(
         val oldPosition = currentPosition
         currentPosition = position
 
-        // Solo actualizar dot activo ANTES de cambiar posición
         if (oldPosition < dotViews.size) {
             updateSingleDot(oldPosition, false)
         }
@@ -50,13 +54,6 @@ class OnboardingPagerAdapter(
         }
 
         updateButton(position == items.size - 1)
-    }
-
-    private fun updateDots(initialPosition: Int) {
-        // Crear dots SOLO la primera vez
-        if (dotViews.isEmpty()) {
-            createDots(initialPosition)
-        }
     }
 
     private fun createDots(activePosition: Int) {

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.auth.FirebaseAuth
 import com.linkersconsulting.activegym.R
 import com.linkersconsulting.activegym.databinding.FragmentOnboardingBinding
 import com.linkersconsulting.activegym.features.init.data.OnboardingItem
@@ -50,9 +51,11 @@ class OnboardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        prefs = requireContext().getSharedPreferences("onboarding", Context.MODE_PRIVATE)
+        prefs = requireContext().getSharedPreferences("onboarding_per_user", Context.MODE_PRIVATE)
 
-        if (prefs.getBoolean("seen", false)) {
+        // Verificación de seguridad (por si acaso llega aquí)
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null && prefs.getBoolean(currentUser.uid, false)) {
             navigateToMain()
             return
         }
@@ -81,7 +84,11 @@ class OnboardingFragment : Fragment() {
     }
 
     private fun completeOnboarding() {
-        prefs.edit().putBoolean("seen", true).apply()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            // 🔥 REEMPLAZA ESTA FUNCIÓN - Guarda flag ESPECÍFICO para ESTA CUENTA
+            prefs.edit().putBoolean(currentUser.uid, true).apply()
+        }
         navigateToMain()
     }
 
