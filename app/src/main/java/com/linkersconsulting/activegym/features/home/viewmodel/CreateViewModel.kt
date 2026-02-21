@@ -3,7 +3,7 @@ package com.linkersconsulting.activegym.features.home.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.linkersconsulting.activegym.features.init.data.model.UserDataClass
+import com.linkersconsulting.activegym.features.init.data.model.GymMembersDataClass
 import com.linkersconsulting.activegym.features.init.data.repository.UserRepository
 import java.util.Calendar
 
@@ -26,7 +26,7 @@ class UserViewModel : ViewModel() {
             "Anual" -> calendar.add(Calendar.YEAR, 1)
         }
 
-        val user = UserDataClass(
+        val user = GymMembersDataClass(
             name = name,
             email = email,
             membershipType = membership,

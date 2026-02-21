@@ -1,12 +1,12 @@
 package com.linkersconsulting.activegym.features.init.data.repository
 import com.google.firebase.firestore.FirebaseFirestore
-import com.linkersconsulting.activegym.features.init.data.model.UserDataClass
+import com.linkersconsulting.activegym.features.init.data.model.GymMembersDataClass
 
 class UserRepository {
 
     private val db = FirebaseFirestore.getInstance()
 
-    fun saveUser(user: UserDataClass, onResult: (Boolean) -> Unit) {
+    fun saveUser(user: GymMembersDataClass, onResult: (Boolean) -> Unit) {
 
         db.collection("users")
             .add(user)
